@@ -19,6 +19,12 @@ class CategoriesTableSeeder extends Seeder
             '本', 'コンピュータ', 'ディスプレイ'
         ];
 
+        $major_category_id = [
+            '本' => 1,
+            'コンピュータ' => 2,
+            'ディスプレイ' => 3
+        ];
+
         $book_categories = [
             'ビジネス', '文学・評論', '人文・思想', 'スポーツ',
             'コンピュータ・IT', '資格・検定・就職', '絵本・児童書', '写真集',
@@ -37,27 +43,27 @@ class CategoriesTableSeeder extends Seeder
             if($major_category_name == '本') {
                 foreach($book_categories as $book_category) {
                     Category::create([
+                        'major_category_id' => $major_category_id[$major_category_name],
                         'name' => $book_category,
                         'description' => $book_category,
-                        'major_category_name' => $major_category_name
                     ]);
                 }
             }
             if($major_category_name == 'コンピュータ') {
                 foreach($computer_categories as $computer_category) {
                     Category::create([
+                        'major_category_id' => $major_category_id[$major_category_name],
                         'name' => $computer_category,
                         'description' => $computer_category,
-                        'major_category_name' => $major_category_name
                     ]);
                 }
             }
             if($major_category_name == 'ディスプレイ') {
                 foreach($display_categories as $display_category) {
                     Category::create([
+                        'major_category_id' => $major_category_id[$major_category_name],
                         'name' => $display_category,
                         'description' => $display_category,
-                        'major_category_name' => $major_category_name
                     ]);
                 }
             }
